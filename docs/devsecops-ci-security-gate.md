@@ -59,8 +59,8 @@ findings above threshold.
 Both runs are permanently visible in the repository's Actions tab —
 not a screenshot claiming this happened, but a live, re-verifiable
 record that it did.
-![Bandit SAST scan output showing the two real findings from the failing run](../images/bandit-scan-failure.png)
-![GitHub Actions run history showing the failed run followed by the passing run after the fix](../images/actions-fail-then-pass.png)
+![Bandit SAST scan output showing the two real findings from the failing run](../Images/bandit-scan-failure.png)
+![GitHub Actions run history showing the failed run followed by the passing run after the fix](../Images/actions-fail-then-pass.png)
 What this demonstrates
 A real, working security gate: vulnerable code cannot merge silently
 Recognition and correct remediation of two of the most common
