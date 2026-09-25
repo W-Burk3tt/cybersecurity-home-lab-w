@@ -1,0 +1,26 @@
+# /etc/netplan/00-installer-config.yaml
+#
+# Ubuntu Server static IP configuration, routed through pfSense.
+# Renderer must be explicitly set to NetworkManager on this build —
+# netplan defaults to systemd-networkd, which wasn't running, causing
+# `netplan apply` to fail silently until this was set explicitly.
+#
+# Note: interface name (enp0s8) is not guaranteed stable — it shifted
+# after removing a second NIC in VirtualBox. Always confirm the current
+# interface name with `ip a` before applying on a rebuilt VM.
+
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    enp0s8:
+      dhcp4: false
+      addresses: [10.0.0.40/24]
+      routes:
+        - to: default
+          via: 10.0.0.1
+      nameservers:
+        addresses: [10.0.0.10]
+
+# Apply with: sudo netplan apply
+# Verify with: ip a / ip route show / resolvectl status
